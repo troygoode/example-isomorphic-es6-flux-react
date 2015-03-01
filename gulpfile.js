@@ -20,7 +20,7 @@ gulp.task("js", function () {
 });
 
 gulp.task("server", function () {
-  server.run(["server/bootstrap.js"]);
+  server.run(["bootstrap.js"]);
   gulp.watch([
     "./app.es6",
     "./server.js",
