@@ -1,10 +1,8 @@
 "use strict";
 
-var React = require("react");
-var App = require("./App.jsx");
+let React = require("react");
+let App = React.createFactory(require("./App.jsx"));
 
 if (typeof window !== "undefined") {
-  window.onload = function() {
-    React.renderComponent(new App(), document);
-  };
+  window.onload = ()=> React.render(new App(), document);
 }

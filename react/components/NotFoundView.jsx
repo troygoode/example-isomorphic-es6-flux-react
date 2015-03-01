@@ -1,9 +1,9 @@
 "use strict";
 
-var React = require("react");
+let React = require("react");
 
-var NotFoundView = React.createClass({
-  render: function() {
+let NotFoundView = React.createClass({
+  render() {
     return (
       <p>Not Found</p>
     );

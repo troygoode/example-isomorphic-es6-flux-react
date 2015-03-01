@@ -1,5 +1,4 @@
 "use strict";
-require("node-jsx").install({extension: ".jsx"});
 
 let url = require("url");
 let path = require("path");

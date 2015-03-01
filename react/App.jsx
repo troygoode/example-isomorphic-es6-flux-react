@@ -1,22 +1,21 @@
 "use strict";
 
-var React = require("react");
-var Router = require("react-router-component");
-var Locations = Router.Locations;
-var Location = Router.Location;
-var NotFound = Router.NotFound;
-var PostList = require("./components/PostList.jsx");
-var PostView = require("./components/PostView.jsx");
-var NotFoundView = require("./components/NotFoundView.jsx");
+let React = require("react");
+let Router = require("react-router-component");
+let Locations = Router.Locations;
+let Location = Router.Location;
+let NotFound = Router.NotFound;
+let PostList = require("./components/PostList.jsx");
+let PostView = require("./components/PostView.jsx");
+let NotFoundView = require("./components/NotFoundView.jsx");
 
-var App = React.createClass({
-  render: function() {
+let App = React.createClass({
+  render() {
     return (
       <html>
         <head lang="en">
           <meta charSet="UTF-8"/>
-          <title>React App</title>
-          <link rel="stylesheet" href="/stylesheets/style.css"/>
+          <title>Example ES6 Isomorphic React App</title>
         </head>
         <body>
           <div id="main">

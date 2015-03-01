@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "bin/web"
+    "start": "grunt; bin/web"
   },
   "dependencies": {
     "babel": "^4.6.3",
@@ -11,17 +11,16 @@
     "debug": "^2.1.1",
     "express": "^4.12.0",
     "fibers": "^1.0.5",
+    "grunt": "^0.4.5",
+    "grunt-babel": "^4.0.0",
+    "grunt-browserify": "^3.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-react": "^0.10.0",
     "immutable": "^3.6.2",
     "node-jsx": "^0.12.4",
     "react": "^0.12.2",
     "react-async": "^2.0.1",
     "react-router-component": "^0.24.1",
     "superagent": "^0.21.0"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-browserify": "^3.5.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-react": "^0.10.0"
   }
 }

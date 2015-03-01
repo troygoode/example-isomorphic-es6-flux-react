@@ -1,27 +1,19 @@
 "use strict";
 
-var React = require("react");
-var ReactAsync = require("react-async");
-var request = require("superagent");
+let React = require("react");
+let ReactAsync = require("react-async");
+let request = require("superagent");
 
-var PostView = React.createClass({
+let PostView = React.createClass({
   mixins: [ReactAsync.Mixin],
 
-  getInitialStateAsync: function(cb) {
-    var id = this.props.id;
-    request.get("http://localhost:3000/api/posts/" + id, function(res) {
-      cb(null, {post: res.body || {}});
-    });
+  getInitialStateAsync(cb) {
+    let id = this.props.id;
+    request.get("http://localhost:3000/api/posts/" + id, (res) => cb(null, {post: res.body || {}}));
   },
 
   render: function() {
-    var content;
-    if (this.state.post._id) {
-      content = <span>{this.state.post.content}</span>;
-    } else {
-      content = <p>Invalid Post</p>;
-    }
-
+    let content = this.state.post._id ? <span>{this.state.post.content}</span> : <p>Invalid Post</p>;
     return (
       <div className="singlePost">{content}</div>
     );

@@ -2,6 +2,7 @@
 
 module.exports = function (grunt) {
 
+  grunt.loadNpmTasks("grunt-babel");
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-contrib-watch");
 
@@ -12,7 +13,16 @@ module.exports = function (grunt) {
     watch: {
       react: {
         files: "react/**/*.jsx",
-        tasks: ["browserify"]
+        tasks: ["default"]
+      }
+    },
+
+    babel: {
+      files: {
+        expand: true,
+        cwd: "./",
+        src: ["react/**/*.jsx"],
+        dest: ".build/es5/"
       }
     },
 
@@ -21,7 +31,7 @@ module.exports = function (grunt) {
         transform: [ require("grunt-react").browserify ]
       },
       client: {
-        src: ["react/**/*.jsx"],
+        src: [".build/es5/**/*.jsx"],
         dest: ".build/final/scripts/react/bundle.js"
       }
     }
@@ -29,6 +39,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask("default", [
+    "babel",
     "browserify"
   ]);
 
