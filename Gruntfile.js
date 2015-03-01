@@ -22,7 +22,7 @@ module.exports = function (grunt) {
       },
       client: {
         src: ["react/**/*.jsx"],
-        dest: ".build/scripts/react/bundle.js"
+        dest: ".build/final/scripts/react/bundle.js"
       }
     }
 

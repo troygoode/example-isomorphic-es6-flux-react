@@ -6,6 +6,7 @@
     "start": "bin/web"
   },
   "dependencies": {
+    "babel": "^4.6.3",
     "body-parser": "^1.12.0",
     "debug": "^2.1.1",
     "express": "^4.12.0",
