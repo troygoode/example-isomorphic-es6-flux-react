@@ -6,7 +6,7 @@ let express = require("express");
 let bodyParser = require("body-parser");
 let React = require("react");
 let ReactAsync = require("react-async");
-let JSXApp = React.createFactory(require("./react/App.jsx"));
+let JSXApp = React.createFactory(require("../react/App.jsx"));
 
 let posts = [
   {
@@ -30,7 +30,7 @@ let app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, ".build/final")));
+app.use(express.static(path.join(__dirname, "../.build/final")));
 
 app.get("/api/posts", (req, res) => {
   res.json(posts);
