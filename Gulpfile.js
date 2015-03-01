@@ -2,32 +2,36 @@
 
 var gulp = require("gulp"),
   babelify = require("babelify"),
-  browserify = require("browserify"),
+  browserify = require("gulp-browserify2"),
   reactify = require("reactify"),
-  rename = require("gulp-rename"),
-  through2 = require("through2");
+  server = require("gulp-express");
 
-function browserified () {
-  return through2.obj(function (file, enc, next) {
-    browserify(file.path, {
-      extensions: [".jsx"]
-    })
-      .transform(babelify)
-      .transform(reactify)
-      .bundle(function (err, res) {
-        if (err) {
-          next(err);
-        } else {
-          file.contents = res;
-          next(null, file);
-        }
-      });
-  });
-}
-
-gulp.task("default", function () {
+gulp.task("js", function () {
   gulp.src("./react/Bootstrap.jsx")
-    .pipe(browserified())
-    .pipe(rename("bundle.js"))
-    .pipe(gulp.dest(".build/final/"));
+    .pipe(browserify({
+      filename: "bundle.js",
+      transform: [babelify, reactify],
+      options: {
+        extensions: [".jsx"]
+      }
+    }))
+    .pipe(gulp.dest(".build/final/"))
+    .pipe(server.notify());
 });
+
+gulp.task("server", function () {
+  server.run(["server.js"]);
+  gulp.watch([
+    "./app.es6",
+    "./server.js",
+    "./react/**/*.jsx"
+  ], ["server"]);
+});
+
+gulp.task("watch", ["js"], function () {
+  gulp.watch(["./react/**/*.jsx"], ["js"]);
+});
+
+gulp.task("default", ["watch", "server"]);
+
+module.exports = gulp;

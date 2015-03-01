@@ -19,6 +19,7 @@ let App = React.createClass({
         </head>
         <body>
           <div id="main">
+            <h1>Hello World</h1>
             <Locations path={this.props.path}>
               <Location path="/" handler={PostList} />
               <Location path="/post/:id" handler={PostView} />
