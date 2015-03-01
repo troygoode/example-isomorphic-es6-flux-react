@@ -5,17 +5,17 @@ let router = new express.Router();
 
 let posts = [
   {
-    _id: 1,
+    id: 1,
     title: "first post",
     content: "hello world"
   },
   {
-    _id: 2,
+    id: 2,
     title: "second post",
     content: "foo bar"
   },
   {
-    _id: 3,
+    id: 3,
     title: "third post",
     content: "fizz buzz"
   }
@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res, next) => {
-  let post = posts.find(p => p._id.toString() === req.params.id);
+  let post = posts.find(p => p.id.toString() === req.params.id);
   if (!post) {
     return next();
   }

@@ -13,7 +13,7 @@ let PostView = React.createClass({
   },
 
   render: function() {
-    let content = this.state.post._id ? <span>{this.state.post.content}</span> : <p>Invalid Post</p>;
+    let content = this.state.post.id ? <span>{this.state.post.content}</span> : <p>Invalid Post</p>;
     return (
       <div className="singlePost">{content}</div>
     );

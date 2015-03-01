@@ -8,7 +8,7 @@ let Link = require("react-router-component").Link;
 let Post = React.createClass({
   render() {
     let post = this.props.post;
-    let url = "/post/" + post._id;
+    let url = `/post/${post.id}`;
     return (
       <div className="postBox">
         <span><Link href={url}>{post.title}</Link></span>
@@ -21,13 +21,13 @@ let PostList = React.createClass({
   mixins: [ReactAsync.Mixin],
 
   getInitialStateAsync(cb) {
-    request.get("http://localhost:3000/api/posts", (response) => cb(null, {posts: response.body}));
+    request.get("http://localhost:3000/api/posts", (res) => cb(null, {posts: res.body}));
   },
 
   render() {
     let postNodes = this.state.posts.map((post) => {
       return (
-        <Post key={post._id} post={post}></Post>
+        <Post key={post.id} post={post}></Post>
       );
     });
     return (
