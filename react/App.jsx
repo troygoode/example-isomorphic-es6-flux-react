@@ -25,7 +25,7 @@ let App = React.createClass({
               <NotFound handler={NotFoundView} />
             </Locations>
           </div>
-          <script type="text/javascript" src="/scripts/react/bundle.js"></script>
+          <script type="text/javascript" src="/bundle.js"></script>
         </body>
       </html>
     );
