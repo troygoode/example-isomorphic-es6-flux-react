@@ -1,11 +1,11 @@
 "use strict";
 
 import React from "react";
-import {Mixin} from "react-async";
+import {Mixin as AsyncMixin} from "react-async";
 import {get} from "superagent";
 
 let PostView = React.createClass({
-  mixins: [Mixin],
+  mixins: [AsyncMixin],
 
   getInitialStateAsync(cb) {
     let id = this.props.id;

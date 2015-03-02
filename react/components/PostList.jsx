@@ -2,7 +2,7 @@
 
 import React from "react";
 import {get} from "superagent";
-import {Mixin} from "react-async";
+import {Mixin as AsyncMixin} from "react-async";
 import {Link} from "react-router-component";
 
 let Post = React.createClass({
@@ -19,7 +19,7 @@ let Post = React.createClass({
 });
 
 let PostList = React.createClass({
-  mixins: [Mixin],
+  mixins: [AsyncMixin],
 
   getInitialStateAsync(cb) {
     get("http://localhost:3000/api/posts", ({body} = []) => cb(null, {posts: body}));
