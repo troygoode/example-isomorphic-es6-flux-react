@@ -1,6 +1,6 @@
 "use strict";
 
-let React = require("react");
+import React from "react";
 
 let NotFoundView = React.createClass({
   render() {

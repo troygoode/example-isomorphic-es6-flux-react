@@ -1,14 +1,10 @@
 "use strict";
 
-let express = require("express");
+import express from "express";
+import postsRouter from "./posts";
+
 let router = new express.Router();
 
-let subrouters = {
-  "/posts": require("./posts")
-};
-
-for (let key of Object.keys(subrouters)) {
-  router.use(key, subrouters[key]);
-}
+router.use("/posts", postsRouter);
 
 module.exports = router;

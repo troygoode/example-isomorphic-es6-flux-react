@@ -1,10 +1,12 @@
 "use strict";
 
-require("babelify/polyfill");
+import "babelify/polyfill";
 
-let React = require("react");
-let App = React.createFactory(require("./App.jsx"));
+import React from "react";
+import appJSX from "./App.jsx";
+
+let AppComponent = React.createFactory(appJSX);
 
 if (typeof window !== "undefined") {
-  window.onload = ()=> React.render(new App(), document);
+  window.onload = ()=> React.render(new AppComponent(), document);
 }

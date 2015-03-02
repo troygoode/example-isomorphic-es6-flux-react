@@ -1,9 +1,9 @@
 "use strict";
 
-let React = require("react");
-let request = require("superagent");
-let ReactAsync = require("react-async");
-let Link = require("react-router-component").Link;
+import React from "react";
+import request from "superagent";
+import ReactAsync from "react-async";
+import {Link} from "react-router-component";
 
 let Post = React.createClass({
   render() {

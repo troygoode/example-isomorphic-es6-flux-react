@@ -1,13 +1,14 @@
 "use strict";
 
-let React = require("react");
-let Router = require("react-router-component");
+import React from "react";
+import Router from "react-router-component";
+import PostList from "./components/PostList.jsx";
+import PostView from "./components/PostView.jsx";
+import NotFoundView from "./components/NotFoundView.jsx";
+
 let Locations = Router.Locations;
 let Location = Router.Location;
 let NotFound = Router.NotFound;
-let PostList = require("./components/PostList.jsx");
-let PostView = require("./components/PostView.jsx");
-let NotFoundView = require("./components/NotFoundView.jsx");
 
 let App = React.createClass({
   render() {

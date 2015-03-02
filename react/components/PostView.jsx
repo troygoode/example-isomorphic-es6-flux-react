@@ -1,8 +1,8 @@
 "use strict";
 
-let React = require("react");
-let ReactAsync = require("react-async");
-let request = require("superagent");
+import React from "react";
+import ReactAsync from "react-async";
+import request from "superagent";
 
 let PostView = React.createClass({
   mixins: [ReactAsync.Mixin],

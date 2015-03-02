@@ -1,11 +1,14 @@
 "use strict";
 
-let debugFactory = require("debug");
-let app = require("./app");
-let debug = debugFactory("example:server");
+import debugFactory from "debug";
+import app from "./app";
 
-app.listen(process.env.PORT || 3000, ()=> {
-  debug("running");
+let debug = debugFactory("example:server");
+let port = process.env.PORT || 3000;
+
+app.listen(port, ()=> {
+  debug(`listening on port ${port}`);
+  console.log(`listening on port ${port}`);
 });
 
 module.exports.app = app;

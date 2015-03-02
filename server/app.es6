@@ -1,15 +1,16 @@
 "use strict";
 
-let url = require("url");
-let path = require("path");
-let express = require("express");
-let bodyParser = require("body-parser");
-let React = require("react");
-let ReactAsync = require("react-async");
-let JSXApp = React.createFactory(require("../react/App.jsx"));
-let api = require("../api");
+import url from "url";
+import path from "path";
+import express from "express";
+import bodyParser from "body-parser";
+import React from "react";
+import ReactAsync from "react-async";
+import appJSX from "../react/App.jsx";
+import api from "../api";
 
 let app = express();
+let AppComponent = React.createFactory(appJSX);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,7 +20,7 @@ app.use("/api", api);
 
 app.get("*", (req, res) => {
   let pathname = url.parse(req.url).pathname;
-  ReactAsync.renderToStringAsync(new JSXApp({path: pathname}), function (err, markup) {
+  ReactAsync.renderToStringAsync(new AppComponent({path: pathname}), function (err, markup) {
     if (err) {
       throw err;
     }
