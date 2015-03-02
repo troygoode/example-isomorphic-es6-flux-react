@@ -22,7 +22,7 @@ let PostList = React.createClass({
   mixins: [Mixin],
 
   getInitialStateAsync(cb) {
-    get("http://localhost:3000/api/posts", ({body}) => cb(null, {posts: body}));
+    get("http://localhost:3000/api/posts", ({body} = []) => cb(null, {posts: body}));
   },
 
   render() {

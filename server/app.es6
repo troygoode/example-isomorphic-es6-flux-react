@@ -19,8 +19,8 @@ app.use(express.static(join(__dirname, "../.build/final")));
 app.use("/api", api);
 
 app.get("*", ({url}, res) => {
-  let {pathname} = parse(url);
-  renderToStringAsync(new AppComponent({path: pathname}), function (err, output) {
+  let {path = pathname} = parse(url);
+  renderToStringAsync(new AppComponent({path}), (err, output) => {
     if (err) {
       throw err;
     }

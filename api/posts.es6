@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res, next) => {
-  let post = posts.find(p => p.id.toString() === req.params.id);
+  let post = posts.find(({id}) => id.toString() === req.params.id);
   if (!post) {
     return next();
   }

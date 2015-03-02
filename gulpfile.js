@@ -22,14 +22,15 @@ gulp.task("js", function () {
 gulp.task("server", function () {
   server.run(["bootstrap.js"]);
   gulp.watch([
-    "./app.es6",
-    "./server.js",
-    "./react/**/*.jsx"
+    "./bootstrap.js",
+    "./api/**/*",
+    "./server/**/*",
+    "./react/**/*"
   ], ["server"]);
 });
 
 gulp.task("watch", ["js"], function () {
-  gulp.watch(["./react/**/*.jsx"], ["js"]);
+  gulp.watch(["./react/**/*"], ["js"]);
 });
 
 gulp.task("default", ["watch", "server"]);
