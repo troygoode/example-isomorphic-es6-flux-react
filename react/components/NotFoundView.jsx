@@ -10,4 +10,4 @@ let NotFoundView = React.createClass({
   }
 });
 
-module.exports = NotFoundView;
+export default NotFoundView;

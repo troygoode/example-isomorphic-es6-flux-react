@@ -7,4 +7,4 @@ let router = new express.Router();
 
 router.use("/posts", postsRouter);
 
-module.exports = router;
+export default router;

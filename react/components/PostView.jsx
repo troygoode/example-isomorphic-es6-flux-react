@@ -20,4 +20,4 @@ let PostView = React.createClass({
   }
 });
 
-module.exports = PostView;
+export default PostView;

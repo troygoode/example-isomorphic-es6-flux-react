@@ -33,4 +33,4 @@ router.get("/:id", (req, res, next) => {
   res.json(post);
 });
 
-module.exports = router;
+export default router;

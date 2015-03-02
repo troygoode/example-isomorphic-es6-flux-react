@@ -30,6 +30,7 @@ let PostList = React.createClass({
         <Post key={post.id} post={post}></Post>
       );
     });
+
     return (
       <div className="postList">
         {postNodes}
@@ -38,4 +39,4 @@ let PostList = React.createClass({
   }
 });
 
-module.exports = PostList;
+export default PostList;
