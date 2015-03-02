@@ -1,14 +1,10 @@
 "use strict";
 
 import React from "react";
-import Router from "react-router-component";
+import {Locations, Location, NotFound} from "react-router-component";
 import PostList from "./components/PostList.jsx";
 import PostView from "./components/PostView.jsx";
 import NotFoundView from "./components/NotFoundView.jsx";
-
-let Locations = Router.Locations;
-let Location = Router.Location;
-let NotFound = Router.NotFound;
 
 let App = React.createClass({
   render() {

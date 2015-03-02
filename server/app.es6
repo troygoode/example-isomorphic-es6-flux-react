@@ -1,30 +1,30 @@
 "use strict";
 
-import url from "url";
-import path from "path";
+import {parse} from "url";
+import {join} from "path";
 import express from "express";
-import bodyParser from "body-parser";
-import React from "react";
-import ReactAsync from "react-async";
+import {json, urlencoded} from "body-parser";
+import {createFactory} from "react";
+import {renderToStringAsync} from "react-async";
 import appJSX from "../react/App.jsx";
 import api from "../api";
 
 let app = express();
-let AppComponent = React.createFactory(appJSX);
+let AppComponent = createFactory(appJSX);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "../.build/final")));
+app.use(json());
+app.use(urlencoded({ extended: false }));
+app.use(express.static(join(__dirname, "../.build/final")));
 
 app.use("/api", api);
 
-app.get("*", (req, res) => {
-  let pathname = url.parse(req.url).pathname;
-  ReactAsync.renderToStringAsync(new AppComponent({path: pathname}), function (err, markup) {
+app.get("*", ({url}, res) => {
+  let {pathname} = parse(url);
+  renderToStringAsync(new AppComponent({path: pathname}), function (err, output) {
     if (err) {
       throw err;
     }
-    res.send(`<!DOCTYPE html>${markup}`);
+    res.send(`<!DOCTYPE html>${output}`);
   });
 });
 

@@ -1,8 +1,8 @@
 "use strict";
 
-import express from "express";
+import {Router} from "express";
 
-let router = new express.Router();
+let router = new Router();
 let posts = [
   {
     id: 1,

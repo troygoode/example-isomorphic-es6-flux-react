@@ -1,14 +1,15 @@
 "use strict";
 
 import React from "react";
-import request from "superagent";
-import ReactAsync from "react-async";
+import {get} from "superagent";
+import {Mixin} from "react-async";
 import {Link} from "react-router-component";
 
 let Post = React.createClass({
   render() {
     let post = this.props.post;
     let url = `/post/${post.id}`;
+
     return (
       <div className="postBox">
         <span><Link href={url}>{post.title}</Link></span>
@@ -18,18 +19,14 @@ let Post = React.createClass({
 });
 
 let PostList = React.createClass({
-  mixins: [ReactAsync.Mixin],
+  mixins: [Mixin],
 
   getInitialStateAsync(cb) {
-    request.get("http://localhost:3000/api/posts", (res) => cb(null, {posts: res.body}));
+    get("http://localhost:3000/api/posts", ({body}) => cb(null, {posts: body}));
   },
 
   render() {
-    let postNodes = this.state.posts.map((post) => {
-      return (
-        <Post key={post.id} post={post}></Post>
-      );
-    });
+    let postNodes = this.state.posts.map((post) => <Post key={post.id} post={post} />);
 
     return (
       <div className="postList">

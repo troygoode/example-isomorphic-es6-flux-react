@@ -2,11 +2,11 @@
 
 import "babelify/polyfill";
 
-import React from "react";
+import {createFactory, render} from "react";
 import appJSX from "./App.jsx";
 
-let AppComponent = React.createFactory(appJSX);
+let AppComponent = createFactory(appJSX);
 
 if (typeof window !== "undefined") {
-  window.onload = ()=> React.render(new AppComponent(), document);
+  window.onload = ()=> render(new AppComponent(), document);
 }

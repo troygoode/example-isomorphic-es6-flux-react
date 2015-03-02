@@ -1,9 +1,9 @@
 "use strict";
 
-import express from "express";
+import {Router} from "express";
 import postsRouter from "./posts";
 
-let router = new express.Router();
+let router = new Router();
 
 router.use("/posts", postsRouter);
 
