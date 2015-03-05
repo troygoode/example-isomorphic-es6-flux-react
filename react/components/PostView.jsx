@@ -9,7 +9,7 @@ let PostView = React.createClass({
 
   getInitialStateAsync(cb) {
     let id = this.props.id;
-    get("http://localhost:3000/api/posts/" + id, ({body} = {}) => cb(null, {post: body}));
+    get(`http://localhost:3000/api/posts/${id}`, ({body} = {}) => cb(null, {post: body}));
   },
 
   render: function() {
